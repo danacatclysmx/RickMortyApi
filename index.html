@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty</title>
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      .pagination {
+        margin-top: 20px;
+        justify-content: center;
+      }
+      .search-form {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .search-input {
+        width: 200px;
+        margin-right: 10px;
+      }
+      .search-button {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <form class="search-form" id="searchForm">
+        <input
+          id="searchInput"
+          class="form-control search-input"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success search-button" type="submit">
+          Search
+        </button>
+        <button type="button" class="btn btn-outline-danger" id="clearButton">
+          Clean
+        </button>
+      </form>
+
+      <div class="card mt-5">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Img</th>
+                <th scope="col">Status</th>
+                <th scope="col">Specie</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Origin</th>
+              </tr>
+            </thead>
+            <tbody id="bodyTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination" id="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" data-page="prev">Prev</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#" data-page="next">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./assets/index.js"></script>
+  </body>
+</html>
