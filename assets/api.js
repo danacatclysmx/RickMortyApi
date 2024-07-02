@@ -6,3 +6,9 @@ export const consultarPersonajesAsync = async (pagina, consulta = "") => {
   const datos = await respuesta.json();
   return datos.results;
 };
+export const consultarPersonaje = async (id) => {
+  const url = `https://rickandmortyapi.com/api/character/${id}`;
+  const respuesta = await fetch(url);
+  const datos = await respuesta.json();
+  return datos;
+};

@@ -15,7 +15,13 @@
 .search-button {
   width: 100px;
   margin-top: 15px;
+  margin-right: 5px;
 }
 #clearButton {
   margin-top: 15px;
+}
+.modal-button {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
