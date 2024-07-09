@@ -59,28 +59,70 @@ const pintarPersonaje = async (id) => {
   console.log(datos);
   document.querySelector(".modal-title").textContent = datos.name;
   const body = document.querySelector(".modal-body");
-  body.innerHTML = `
-  <table class="table table-danger">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Specie</th>
-        <th>Gender</th>
-        <th>Origin</th>
-        <th>Img</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>${datos.name}</td>
-        <td>${datos.status}</td>
-        <td>${datos.species}</td>
-        <td>${datos.gender}</td>
-        <td>${datos.origin.name}</td>
-        <td><image src="${datos.image}" class="rounded img-thumbnail" /></td>
-      </tr>
-    </tbody>
-  </table>
-  `;
+  body.innerHTML = "";
+
+  const tabla = document.createElement("table");
+  tabla.className = "table table-danger";
+
+  const thead = document.createElement("thead");
+  const trHead = document.createElement("tr");
+
+  const thName = document.createElement("th");
+  const thStatus = document.createElement("th");
+  const thSpecie = document.createElement("th");
+  const thGender = document.createElement("th");
+  const thOrigin = document.createElement("th");
+  const thImg = document.createElement("th");
+
+  thName.textContent = "Name";
+  thStatus.textContent = "Status";
+  thSpecie.textContent = "Specie";
+  thGender.textContent = "Gender";
+  thOrigin.textContent = "Origin";
+  thImg.textContent = "Img";
+
+  trHead.appendChild(thName);
+  trHead.appendChild(thStatus);
+  trHead.appendChild(thSpecie);
+  trHead.appendChild(thGender);
+  trHead.appendChild(thOrigin);
+  trHead.appendChild(thImg);
+
+  thead.appendChild(trHead);
+  tabla.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+  const trBody = document.createElement("tr");
+
+  const tdName = document.createElement("td");
+  const tdStatus = document.createElement("td");
+  const tdSpecie = document.createElement("td");
+  const tdGender = document.createElement("td");
+  const tdOrigin = document.createElement("td");
+  const tdImg = document.createElement("td");
+
+  tdName.textContent = datos.name;
+  tdStatus.textContent = datos.status;
+  tdSpecie.textContent = datos.species;
+  tdGender.textContent = datos.gender;
+  tdOrigin.textContent = datos.origin.name;
+
+  const img = document.createElement("img");
+  img.src = datos.image;
+  img.className = "rounded img-thumbnail";
+  img.alt = datos.name;
+
+  tdImg.appendChild(img);
+
+  trBody.appendChild(tdName);
+  trBody.appendChild(tdStatus);
+  trBody.appendChild(tdSpecie);
+  trBody.appendChild(tdGender);
+  trBody.appendChild(tdOrigin);
+  trBody.appendChild(tdImg);
+
+  tbody.appendChild(trBody);
+  tabla.appendChild(tbody);
+
+  body.appendChild(tabla);
 };

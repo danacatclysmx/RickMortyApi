@@ -19,5 +19,12 @@ document.getElementById("clearButton").addEventListener("click", function () {
   buscarPersonaje();
 });
 
+document
+  .getElementById("filterForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    await buscarPersonaje();
+  });
+
 crearPaginacion();
 pintarPersonajes(1);

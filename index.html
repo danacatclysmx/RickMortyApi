@@ -30,6 +30,62 @@
         </button>
       </form>
 
+      <form class="filter-form mt-3" id="filterForm">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="filterName" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="filterName"
+              placeholder="Filter by name"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="filterStatus" class="form-label">Status</label>
+            <select class="form-select" id="filterStatus">
+              <option value="">Select status</option>
+              <option value="alive">Alive</option>
+              <option value="dead">Dead</option>
+              <option value="unknown">Unknown</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="filterSpecies" class="form-label">Species</label>
+            <input
+              type="text"
+              class="form-control"
+              id="filterSpecies"
+              placeholder="Filter by species"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="filterType" class="form-label">Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="filterType"
+              placeholder="Filter by type"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="filterGender" class="form-label">Gender</label>
+            <select class="form-select" id="filterGender">
+              <option value="">Select gender</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="genderless">Genderless</option>
+              <option value="unknown">Unknown</option>
+            </select>
+          </div>
+          <div class="col-md-12">
+            <button class="btn btn-primary" type="submit">
+              Aplicar filtros
+            </button>
+          </div>
+        </div>
+      </form>
+
       <div class="card mt-5">
         <div class="card-body">
           <table class="table">
@@ -58,7 +114,6 @@
           </li>
         </ul>
       </nav>
-      <!-- Modal -->
 
       <div
         class="modal fade"
@@ -91,7 +146,6 @@
               </button>
             </div>
           </div>
-            
         </div>
       </div>
     </main>
