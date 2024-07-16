@@ -1,11 +1,20 @@
 import { consultarPersonaje, consultarPersonajesAsync } from "./api.js";
+import { crearPaginacion } from "./paginacion.js";
 
 export const pintarPersonajes = async (pagina, consulta = "") => {
   const datos = await consultarPersonajesAsync(pagina, consulta);
   const cuerpoTabla = document.getElementById("bodyTable");
   cuerpoTabla.innerHTML = "";
+
+  if (!datos || datos.length === 0) {
+    cuerpoTabla.innerHTML =
+      "<tr><td colspan='7' class='text-center'> No encuentro nada</td></tr>";
+    crearPaginacion(1, consulta, true);
+    return;
+  }
+
   let contador = (pagina - 1) * 20 + 1;
-  datos.forEach((personaje) => {
+  datos.results.forEach((personaje) => {
     const tr = document.createElement("tr");
 
     const tdContador = document.createElement("td");
@@ -24,13 +33,13 @@ export const pintarPersonajes = async (pagina, consulta = "") => {
     tdContador.textContent = contador;
 
     tdNombre.innerHTML = `<a
-    class="modal-button"
-    id="personaje-${personaje.id}"
-    data-bs-toggle="modal"
-    data-bs-target="#modal"
-  >
-    ${personaje.name}
-  </a>`;
+      class="modal-button"
+      id="personaje-${personaje.id}"
+      data-bs-toggle="modal"
+      data-bs-target="#modal"
+    >
+      ${personaje.name}
+    </a>`;
     tdImagen.appendChild(imagen);
     tdEstado.textContent = personaje.status;
     tdEspecie.textContent = personaje.species;
@@ -53,7 +62,9 @@ export const pintarPersonajes = async (pagina, consulta = "") => {
       });
     contador++;
   });
+  crearPaginacion(pagina, consulta);
 };
+
 const pintarPersonaje = async (id) => {
   const datos = await consultarPersonaje(id);
   console.log(datos);

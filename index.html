@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rick and Morty</title>
+    <title>Rick and Morty API</title>
     <link rel="stylesheet" href="./assets/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -60,15 +60,6 @@
             />
           </div>
           <div class="col-md-6 mb-3">
-            <label for="filterType" class="form-label">Type</label>
-            <input
-              type="text"
-              class="form-control"
-              id="filterType"
-              placeholder="Filter by type"
-            />
-          </div>
-          <div class="col-md-6 mb-3">
             <label for="filterGender" class="form-label">Gender</label>
             <select class="form-select" id="filterGender">
               <option value="">Select gender</option>
@@ -81,6 +72,13 @@
           <div class="col-md-12">
             <button class="btn btn-primary" type="submit">
               Aplicar filtros
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              id="clearFiltersButton"
+            >
+              Clear Filtros
             </button>
           </div>
         </div>
